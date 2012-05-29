@@ -1,0 +1,16 @@
+
+	- You'll see instant events stuff in the js directory but none of it is used
+
+	- Some of the image and audio files aren't used
+
+	- The ones that are aren't necessarily final versions
+
+	x Why is BG.updateGNSRows apparently being called 3 times on login?  Can that be cut down?
+
+	- Rename Cupid to Popup?
+
+
+	- I think times will not be relative.  The gns json needs to be modified to extend each
+	  notification object with not just a timestamp, but that timestamp eval'd to be local
+	  with time.pub
+

@@ -1,0 +1,164 @@
+/* popup.css */
+
+html {
+	width: 410px;
+	overflow: hidden;
+}
+body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 410px;
+	font-family: helvetica, arial, sans-serif;
+	color: #555;
+	overflow: hidden;
+}
+div.content {
+	width: 410px;
+}
+div.content.login {
+	margin: 0;
+	padding: 15px 0 20px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2963A4), to(#183B62));
+	border-radius: 3px;
+}
+div.content.login img {
+	display: block;
+	margin: 10px auto 15px;
+}
+div.content.login form {
+	margin: 0 auto 10px;
+	width: 304px;
+}
+div.content.login input {
+	margin: 0 15px 0 0;
+	padding: 2px 0;
+	width: 135px;
+	font-size: 13px;
+	line-height: 13px;
+	color: rgba(255,255,255,1.0);
+	background: none;
+	border: none;
+	border-bottom: 1px dotted rgba(255,255,255,0.25);
+	outline: none;
+}
+div.content.login input::-webkit-input-placeholder {
+	color: rgba(255,255,255,0.5);
+}
+
+
+
+
+ul#gns {
+	/*position: absolute;
+	top: 90px;
+	left: 185px;*/
+	margin: 0;
+	padding: 0;
+	width: 410px;
+	font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+	background: #f6f6f6;
+	/*box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+	z-index: 600;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;*/
+}
+ul#gns li {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #ddd;
+}
+ul#gns li.wedge {
+	position: absolute;
+	top: -9px;
+	left: 30px;
+	width: 19px;
+	height: 10px;
+	background: url(http://akcdn.okccdn.com/media/img/template/gns_wedge.png) 0 0 no-repeat;
+	border: none;
+	z-index: 2;
+}
+ul#gns li.first {
+	font-size: 11px;
+	text-align: center;
+	line-height: 25px;
+	color: #999;
+}
+ul#gns li.last {
+	padding: 0 0 0 48px;
+	height: 52px;
+	font-size: 11px;
+	line-height: 50px;
+	color: #999;
+	background: url(http://akcdn.okccdn.com/media/img/template/gns_staffrobot.png) 12px center no-repeat;
+	border-bottom: none;
+}
+ul#gns li.last a,
+ul#gns li.last a:hover,
+ul#gns li.last a:active,
+ul#gns li.last a:visited {
+	color: #666;
+}
+ul#gns li.empty {
+	padding: 0 0 0 12px;
+	line-height: 40px;
+}
+ul#gns li a.n {
+	display: block;
+	padding: 10px;
+	font-size: 11px;
+	text-decoration: none;
+	line-height: 32px;
+	color: #2963A4;
+	/*color: #555;*/
+}
+ul#gns li a.n:hover {
+	text-decoration: none;
+	background: #f9f9f9;
+}
+ul#gns li a.n img {
+	float: left;
+	margin: 0 1px 0 0;
+	width: 32px;
+	height: 32px;
+}
+ul#gns li a.n span.count {
+	position: absolute;
+	top: 17px;
+	right: 17px;
+	padding: 0 5px;
+	font-size: 10px;
+	line-height: 15px;
+	color: #fff;
+	background: #9CBAE4;
+	border-top: 1px solid #7EA1D4;
+	border-bottom: 1px solid #9CBAE4;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+ul#gns li a.n span.tag {
+	position: absolute;
+	top: -1px;
+	right: 0;
+	width: 12px;
+	height: 12px;
+	background: url(http://akcdn.okccdn.com/media/img/template/gns_tags.png) 0 0 no-repeat;
+	background-position: -12px 0;
+}
+ul#gns li a.n span.tag.attention_2 {  /* pink */
+	background-position: 0 0;
+}
+ul#gns li a.n span.tag.attention_1 {  /* orange */
+	background-position: 0 -12px;
+}
+ul#gns.viewed span.tag.attention_1 {
+	display: none;
+}
+ul#gns li a.n span.desc {
+	margin-left: 9px;
+}

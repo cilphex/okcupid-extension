@@ -1,0 +1,108 @@
+body {
+	margin: 0;
+	padding: 30px 40px;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 13px;
+	color: #555;
+}
+h1 {
+	
+}
+h2 {
+	margin: 10px 0;
+	font-size: 16px;
+}
+a,
+a:link,
+a:visited,
+a:active {
+	text-decoration: none;
+	color: #2963a4;
+}
+a:hover {
+	text-decoration: underline;
+}
+a.subtle,
+a.subtle:link,
+a.subtle:visited,
+a.subtle:active {
+	text-decoration: none;
+	color: #999;
+}
+a.subtle:hover {
+	text-decoration: underline;
+}
+p.contact {
+	position: fixed;
+	right: 20px;
+	bottom: 0;
+}
+ul {
+	margin: 10px 0;
+	padding: 0;
+	list-style-type: none;
+}
+ul.options {
+}
+ul.options li label {
+	position: relative;
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 0 6px;
+	width: 250px;
+	line-height: 32px;
+	cursor: pointer;
+	background: #f6f6f6;
+	border-bottom: 1px solid #fff;
+	-webkit-transition: background 0.25s ease-out;
+}
+ul.options li:first-child label {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+ul.options li:last-child label {
+	border-bottom: none;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+ul.options li label:hover {
+	background: #eee;
+}
+ul.options li label input[type="checkbox"] {
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-right: 5px;
+}
+ul.options li span.path {
+	position: absolute;
+	display: none;
+	top: 0px;
+	left: 16px;
+	width: 8px;
+	height: 15px;
+	border-left: 1px #999 dotted;
+	border-bottom: 1px #999 dotted;
+}
+ul.options li span.saved {
+	font-style: italic;
+	color: #82B94B;
+}
+ul.options li span.saved.hide {
+	opacity: 0.0;
+	-webkit-transition: opacity 0.5s ease-out;
+}
+ul.options li span.saved.show {
+	opacity: 1.0;
+}
+
+ul.options li.subsetting {
+	
+}
+ul.options li.subsetting label {
+	padding-left: 30px;
+	width: 226px;
+	font-size: 11px;
+}
+ul.options li.subsetting span.path {
+	display: block;
+}

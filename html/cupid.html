@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+	Having the doctype here *seems* to fix these problems:
+    - Popup being too tall, especially when content is hidden/shown
+    - Popup flickering (still seems to flicker a little bit actually - but better than before)
+      - I think this is due to the resizing that happens immediately after opening
+-->
+
+<html>
+	<head>
+		<title>OkCupid</title>
+		<!--<script src="Prototype-1.7.js"></script>-->
+		<script src="/js/cupid.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/cupid.css"/>
+	</head>
+	<body id="body" onload="Cupid.initialize()">
+		<!--<div id="status">Hey there</div>-->
+		<div id="logged_out" class="content login" style="display: none;">
+			<img src="/media/images/logo_108.png"/>
+			<form id="login_form">
+				<input id="username" type="text" placeholder="Username" onkeypress="Cupid.submitLogin(event)"/>
+				<input id="password" type="password" placeholder="Password" onkeypress="Cupid.submitLogin(event)"/>
+			</form>
+		</div>
+		<div id="logged_in" class="content" style="display: none;">
+			<!--<a href="#" onclick="$('gns').toggle(); $('testlinks').toggle()">Toggle</a>-->
+			<ul id="gns" class="gns">
+				<li>Nothing here</li>
+			</ul>
+		</div>
+	</body>
+</html>
