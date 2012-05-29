@@ -1,0 +1,1 @@
+This Chrome extension brings your OkCupid notifications to your browser.
