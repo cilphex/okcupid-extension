@@ -4,8 +4,9 @@ OkCupid Extension
 This Chrome extension brings your OkCupid notifications to your browser.
 
 Currently this extension keeps you signed in while it is turned on, which is the
-main reason it isn't promoted in any way. Access to notifications while logged
-out would require a server-side change at OkCupid.
+main reason it isn't available in the Chrome Web Store or promoted in any way.
+Access to notifications while logged out would require a server-side change at
+OkCupid.
 
 #### Features
 
