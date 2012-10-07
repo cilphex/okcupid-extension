@@ -1,8 +1,16 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+	Having the doctype here *seems* to fix these problems:
+    - Popup being too tall, especially when content is hidden/shown
+    - Popup flickering (still seems to flicker a little bit actually - but better than before)
+      - I think this is due to the resizing that happens immediately after opening
+-->
 
 <html>
 	<head>
 		<title>OkCupid</title>
+		<script src="/js/jquery-1.8.2.min.js"></script>
 		<script src="/js/popup.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/popup.css"/>
 	</head>

@@ -7,9 +7,15 @@
 	// Recommended
 	"description": "OkCupid for Chrome",
 
+	"icons": {
+		"16": "media/images/logo_16.png",
+		"48": "media/images/logo_48.png",
+		"128": "media/images/logo_128.png"
+	},
+
 	// Pick one (or none)
 	"browser_action": {
-		"default_icon": "media/images/sr_test.png",
+		"default_icon": "media/images/sr_gray_2.png",
 		"default_title": "OkCupid 2.0",
 		//"popup": "html/cupid.html"
 		"default_popup": "html/popup.html"
@@ -30,6 +36,7 @@
 		//"page": "html/background.html"
 		// Also takes a "scripts" param instead which is an array of js files
 		"scripts": [
+			"js/jquery-1.8.2.min.js",
 			"js/background.js"
 			//"js/cupid.js"
 		]

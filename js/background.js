@@ -115,7 +115,7 @@
 		}
 	});
 
-	window.Util = window.$ = Util;
+	window.Util = Util;
 
 })(window);
 
@@ -124,22 +124,24 @@ var Popupwindow,
 
 var Defaults = {
 	colors: {
-		blue:   [112,169,234,255], // [41,99,164,255],
-		pink:   [248,50,101,255],
-		orange: [255,135,0,255],
-		black:  [0,0,0,255]
+		blue:        [112,169,234,255], // [41,99,164,255],
+		textblue:    [80,131,219,255],
+		pink:        [248,50,101,255],
+		orange:      [255,135,0,255],
+		black:       [0,0,0,255],
+		white:       [255,255,255,255],
+		gray:        [180,180,180,255]
 	},
 	icons: {
 		notifications: {
 			okcupid: '/media/images/logged_in.png'
 		},
 		sr: {
-			gray: '/media/images/sr_gray.png',
+			gray: '/media/images/sr_gray_2.png',
 			blue: '/media/images/sr_blue.png',
 			yellow: '/media/images/sr_yellow.png',
 			pink: '/media/images/sr_pink.png',
-			test: '/media/images/sr_test.png',
-			test_loggedout: '/media/images/sr_test_loggedout.png'
+			gray_loggedout: '/media/images/sr_gray_loggedout.png'
 		}
 	},
 	sounds: {
@@ -169,6 +171,7 @@ var BG = {
 
 	initialize: function() {
 		this.setupDefaults();
+		this.setupChrome();
 		this.setupListeners();
 		this.getLoggedInState();
 	},
@@ -177,6 +180,10 @@ var BG = {
 		if (!localStorage.getItem('quiver')) {
 			localStorage.setItem('quiver', 'true');
 		}
+	},
+
+	setupChrome: function() {
+		chrome.browserAction.setBadgeBackgroundColor({color: Defaults.colors.blue});
 	},
 
 	setupListeners: function() {
@@ -213,7 +220,7 @@ var BG = {
 	},
 
 	loggedIn: function() {
-		chrome.browserAction.setIcon({path: Defaults.icons.sr.test});  // icons.sr.blue
+		chrome.browserAction.setIcon({path: Defaults.icons.sr.gray});  // icons.sr.blue
 		// This line could be put in an "if (!Cupid)" switch and it'd be fine.  The only
 		// thing it gets us when we don't do that is having the number color switch from
 		// yellow back to blue instantly, instead of waiting for the next poll
@@ -225,7 +232,7 @@ var BG = {
 	},
 
 	loggedOut: function() {
-		chrome.browserAction.setIcon({path: Defaults.icons.sr.test_loggedout});
+		chrome.browserAction.setIcon({path: Defaults.icons.sr.gray_loggedout});
 		this.clearGNSInterval();
 		this.updateBadge(true);
 		this.gns_info = {};
@@ -329,7 +336,7 @@ var BG = {
 				this.removeQuiver();
 			}
 
-			this.updateBadge(null, old_gns_info);
+			this.updateBadge(false, old_gns_info);
 			if (Popup)
 				Popup.updateGNS();
 		}
@@ -358,12 +365,12 @@ var BG = {
 	updateBadge: function(clear, old_gns_info) {
 		
 		//var text = clear ? '' : this.gns_info.total || '';
-		var text = (clear && this.gns_info.total) || '';
+		var text = (!clear && this.gns_info.total) || '';
 
 		switch(this.gns_info.attention) {
-			case 2:   var color = Defaults.colors.pink;    break;
-			case 1:   var color = Defaults.colors.orange;  break;
-			default:  var color = Defaults.colors.blue;    break;
+			case 2:  var color = Defaults.colors.pink; break;
+			case 1:  var color = Defaults.colors.blue; break;
+			default: var color = Defaults.colors.gray; break;
 		}
 
 		chrome.browserAction.setBadgeText({text: text.toString()});
@@ -426,7 +433,7 @@ var BG = {
 		n.show();
 		setTimeout(function() {
 			n.cancel();
-		}, 10000);
+		}, 3600000 /*10000*/);
 	},
 
 	// Used to return the <li> rows for a <ul> #gns area.  Called from both Cupid (popup) and Notify.
@@ -572,3 +579,5 @@ var BG = {
 	}
 	
 };
+
+BG.initialize();

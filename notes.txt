@@ -1,4 +1,6 @@
 
+	- Badge is not updated at startup, only once you open it at least once
+
 	- You'll see instant events stuff in the js directory but none of it is used
 
 	- Some of the image and audio files aren't used

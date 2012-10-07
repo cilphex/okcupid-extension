@@ -31,10 +31,10 @@ var Popup = {
 	},
 
 	setupGlobals: function() {
-		Background    = chrome.extension.getBackgroundPage();
-		Util = $      = Background.Util;
-		Defaults      = Background.Defaults;
-		BG            = Background.BG;
+		Background  = chrome.extension.getBackgroundPage();
+		Util        = Background.Util;
+		Defaults    = Background.Defaults;
+		BG          = Background.BG;
 	},
 
 	setupLoggedInState: function(logged_in) {
@@ -43,24 +43,24 @@ var Popup = {
 
 	// Called from BG.loggedIn, after doing BG.getLoggedInState()
 	setupLoggedIn: function() {
-		$('logged_out').hide();
-		$('logged_in').show();
+		$('#logged_out').hide();
+		$('#logged_in').show();
 		this.updateGNS();     // I *Think* this can be left out.
 		                      // It can but that makes an extra flicker
 	},
 
 	// Called from BG.loggedOut, after doing BG.getLoggedInState()
 	setupLoggedOut: function() {
-		$('logged_in').hide();
-		$('logged_out').show();
-		document.getElementById('username').focus();
+		$('#logged_in').hide();
+		$('#logged_out').show();
+		$('#username').focus();
 	},
 
 	submitLogin: function(e) {
 		if (e.keyCode != 13)
 			return;
-		var username = $('username').value;
-		var password = $('password').value;
+		var username = $('#username').val();
+		var password = $('#password').val();
 		BG.doLogin(username, password);
 	},
 
@@ -82,7 +82,7 @@ var Popup = {
 
 		var rows = BG.getGNSRows();
 		rows.push('<li class="last">' + (this.message || Defaults.messages.sr) + '</li>');
-		$('gns').update(rows.join(''));
+		$('#gns').html(rows.join(''));
 	},
 
 

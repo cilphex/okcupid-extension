@@ -1,12 +1,18 @@
 <html>
 	<head>
 		<title>Test!</title>
-		<link rel="stylesheet" type="text/css" href="/css/cupid.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/popup.css"/>
 
 		<!-- split these things out into css and js files? -->
 
+		<script src="/js/jquery-1.8.2.min.js"></script>
+		<script src="/js/notify.js"></script>
 		<style>
+			html {
+				width: auto;
+			}
 			body {
+				position: static;
 				width: auto;
 				font-family: helvetica, arial, sans-serif;
 				font-size: 11px;
@@ -14,10 +20,6 @@
 				-webkit-transition: background 0.15s ease-out;
 				/*color: #fff;*/
 				/*background: -webkit-gradient(linear, left top, left bottom, from(#2963A4), to(#183B62));*/
-			}
-			body:hover {
-				background: #D9E4EF;
-				cursor: pointer;
 			}
 			ul#gns {
 				width: auto;
@@ -34,41 +36,8 @@
 				background: url(sr_test.png) 0 0 no-repeat;
 			}
 		</style>
-		<script>
-			var Background;
-			var Util, $;
-			var BG;
-			var InstantEvents;
-
-			// There might be different types of notifications, and if so, this file should be renamed to
-			// gns_notification.html or something like that.  something more specific, less generic
-
-			var Notify = {
-			
-				initialize: function() {
-					this.setupGlobals();
-					this.setupContent();
-				},
-
-				setupGlobals: function() {
-					Background    = chrome.extension.getBackgroundPage();
-					Util = $      = Background.Util;
-					Defaults      = Background.Defaults;
-					BG            = Background.BG;
-					InstantEvents = Background.InstantEvents;
-				},
-
-				setupContent: function() {
-					var rows = BG.getGNSRows(true);
-					document.getElementById('gns').innerHTML = rows.join('');
-				}
-			};
-
-		</script>
 	</head>
-	<body onload="Notify.initialize();">
-		<!--<p id="title"></p>-->
-		<!--<p id="text"></p>-->
+	<body class="notify">
 		<ul id="gns"></ul>
 	</body>
 </html>
