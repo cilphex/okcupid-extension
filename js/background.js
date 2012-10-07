@@ -433,7 +433,7 @@ var BG = {
 		n.show();
 		setTimeout(function() {
 			n.cancel();
-		}, 3600000 /*10000*/);
+		}, 10000);
 	},
 
 	// Used to return the <li> rows for a <ul> #gns area.  Called from both Cupid (popup) and Notify.
