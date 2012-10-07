@@ -1,26 +1,19 @@
 {
 	// Required
-	"name": "OkCupid",
-	"version": "1.0",
+	"manifest_version": 2,
+	"name": "OkCupid 2.0",
+	"version": "2.0",
 
 	// Recommended
 	"description": "OkCupid for Chrome",
-	/*"icons": {
-		"16": "media/images/sr_icon_16.png",
-		"48": "media/images/sr_icon_48.png",
-		"128": "media/images/sr_icon_128.png"
-	},*/
-	//"default_locale": "en",  // gives an error
 
 	// Pick one (or none)
 	"browser_action": {
 		"default_icon": "media/images/sr_test.png",
-		"default_title": "OkCupid",
-		"popup": "html/cupid.html"
+		"default_title": "OkCupid 2.0",
+		//"popup": "html/cupid.html"
+		"default_popup": "html/popup.html"
 	},
-	// "page_action": {},
-	// "theme": {},
-	// "app": {},
 
 	// Add any of these that you need
 	"permissions": [
@@ -30,20 +23,18 @@
 		"notifications",
 		"*://*.okcupid.com/"
 	],
-	"background_page": "html/background.html",
-	"options_page": "html/options.html"
+	
+	// Removed in manifest version 2
+	
+	"background": {
+		//"page": "html/background.html"
+		// Also takes a "scripts" param instead which is an array of js files
+		"scripts": [
+			"js/background.js"
+			//"js/cupid.js"
+		]
+		//"persistent": false
+	},
 
-	//"chrome_url_overrides": {},
-	//"content_scripts": {},
-	//"content_security_policy": "",
-	//"file_browser_handlers": [],
-	//"homepage_url": "",
-	//"incognito": "spanning" or "split",
-	//"key": "publicKey",
-	//"minimum_chrome_version": "versionString" // consider this as the cookies api was like 12 or something
-	//"nacl_modules": [],
-	//"offline_enabled": true,
-	//"omnibox": {"keyword": "aString"},
-	//"plugins": [],
-	//"update_url": "http://path/to/updateInfo.xml"
+	"options_page": "html/options.html"
 }

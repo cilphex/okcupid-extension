@@ -19,7 +19,7 @@
 			// else { el = null; }
 			// return el;
 
-			return Object.extend(Popup.document.getElementById(id), Util.element_methods);
+			return Object.extend(PopupWindow.document.getElementById(id), Util.element_methods);
 		}
 		else {
 			return id;
@@ -119,6 +119,9 @@
 
 })(window);
 
+var Popupwindow,
+	Popup;
+
 var Defaults = {
 	colors: {
 		blue:   [112,169,234,255], // [41,99,164,255],
@@ -147,13 +150,6 @@ var Defaults = {
 		sr: 'Happy Day!'
 	}
 };
-
-/*var InstantEvents = {
-	// see instant_events.js
-};*/
-
-var Popup;
-var Cupid;
 
 var BG = {
 
@@ -189,8 +185,8 @@ var BG = {
 
 	// Called from the popup's init function each time a popup appears
 	setupGlobals: function() {
-		Popup = chrome.extension.getViews({type: 'popup'})[0] || null;
-		Cupid = Popup ? Popup.Cupid : null;
+		PopupWindow = chrome.extension.getViews({type: 'popup'})[0] || null;
+		Popup = PopupWindow ? PopupWindow.Popup : null;
 	},
 
 	cookieChanged: function(changeInfo) {
@@ -209,6 +205,7 @@ var BG = {
 	getLoggedInState_cb: function(cb, cookie) {
 		this.logged_in = cookie ? true : false;
 		this.logged_in ? this.loggedIn() : this.loggedOut();
+		if (cb) cb(this.logged_in);
 	},
 
 	getPathUrl: function(path) {
@@ -223,8 +220,8 @@ var BG = {
 		// - This comment no longer applies since the updateGNS line was commented out
 		//   in Cupid.setupLoggedIn()
 		this.setupGNSInterval();
-		if (Cupid)
-			Cupid.setupLoggedIn();
+		//if (Cupid)
+		//	Cupid.setupLoggedIn();
 	},
 
 	loggedOut: function() {
@@ -232,8 +229,8 @@ var BG = {
 		this.clearGNSInterval();
 		this.updateBadge(true);
 		this.gns_info = {};
-		if (Cupid)
-			Cupid.setupLoggedOut();
+		//if (Cupid)
+		//	Cupid.setupLoggedOut();
 	},
 
 	doLogin: function(username, password) {
@@ -258,7 +255,7 @@ var BG = {
 			//this.getLoggedInState();
 		}
 		else {
-			Cupid.loginError(response);
+			Popup.loginError(response);
 		}
 	},
 
@@ -283,7 +280,7 @@ var BG = {
 			this.getLoggedInState();
 		}
 		else {
-			Cupid.logoutError();
+			Popup.logoutError();
 		}
 	},
 
@@ -324,7 +321,7 @@ var BG = {
 	// Untested
 	getGNSInfo_cb: function(transport) {
 		var res = JSON.parse(transport.responseText);
-		if (!res.status && res.gns_info) {
+		if (/*!res.status &&*/ res.gns_info) {
 			var old_gns_info = this.gns_info;
 			this.gns_info = res.gns_info;
 
@@ -333,8 +330,8 @@ var BG = {
 			}
 
 			this.updateBadge(null, old_gns_info);
-			if (Cupid)
-				Cupid.updateGNS();
+			if (Popup)
+				Popup.updateGNS();
 		}
 	},
 

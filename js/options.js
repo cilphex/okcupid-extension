@@ -1,11 +1,5 @@
 // options.js
 
-// Probably don't need all of these.  Just in case.
-var Background;
-var Util, $;
-var BG;
-var InstantEvents;
-
 var Options = {
 
 	settings: [
@@ -41,16 +35,7 @@ var Options = {
 	],
 
 	initialize: function() {
-		this.setupGlobals();
 		this.injectSettings();
-	},
-	
-	setupGlobals: function() {
-		Background    = chrome.extension.getBackgroundPage();
-		Util = $      = Background.Util;
-		Defaults      = Background.Defaults;
-		BG            = Background.BG;
-		InstantEvents = Background.InstantEvents;
 	},
 	
 	injectSettings: function() {
@@ -132,3 +117,5 @@ var Options = {
 		}, 2500);
 	}
 };
+
+document.addEventListener('DOMContentLoaded', Options.initialize.bind(Options));

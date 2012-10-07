@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>OkCupid</title>
+		<script src="/js/popup.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/popup.css"/>
+	</head>
+	<!--<body id="body" onload="Cupid.initialize()">-->
+	<body id="body">
+		<!--<div id="status">Hey there</div>-->
+		<div id="logged_out" class="content login" style="display: none;">
+			<img src="/media/images/logo_108.png"/>
+			<form id="login_form">
+				<input id="username" type="text" placeholder="Username" onkeypress="Cupid.submitLogin(event)"/>
+				<input id="password" type="password" placeholder="Password" onkeypress="Cupid.submitLogin(event)"/>
+			</form>
+		</div>
+		<div id="logged_in" class="content" style="display: none;">
+			<!--<a href="#" onclick="$('gns').toggle(); $('testlinks').toggle()">Toggle</a>-->
+			<ul id="gns" class="gns">
+				<li>Nothing here</li>
+			</ul>
+		</div>
+	</body>
+</html>
